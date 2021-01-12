@@ -26,16 +26,21 @@ export default function App() {
     }
   });
 
-  const updateTarget = (id, target) => {
-    setFrameId(id);
-    setTarget(target);
+  const getTargetId = (target) => target.getAttribute("data-target");
+
+  const updateTarget = (target) => {
+    const targetId = getTargetId(target);
+    if (targetFrames[targetId]) {
+      setFrameId(targetId);
+      setTarget(target);
+    }
   };
 
   React.useEffect(() => {
     setDragTarget(document.querySelector(".container"));
   }, []);
   return (
-    <div className="container">
+    <div className="container" onClick={(e) => updateTarget(e.target)}>
       <Moveable
         target={target}
         dragTarget={dragTarget}
@@ -89,16 +94,17 @@ export default function App() {
         }}
       />
       <div
+        data-target="shape"
         className="target"
         style={{ top: "10px", left: "10px" }}
-        onClick={(e) => updateTarget("shape", e.target)}
       ></div>
       <img
+        data-target="isotopes"
         src="https://i.pinimg.com/originals/b7/ac/a1/b7aca191c897af5fe498a22418c076a8.jpg"
         style={{ position: "absolute", width: "100px", top: "150px" }}
-        onClick={(e) => updateTarget("isotopes", e.target)}
       />
       <div
+        data-target="richText"
         style={{
           position: "absolute",
           border: "1px solid gray",
@@ -109,7 +115,6 @@ export default function App() {
           __html:
             '<p style="text-align: center;" data-mce-style="text-align: center;"><span style="text-decoration: underline;" data-mce-style="text-decoration: underline;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">SlideEditor text sample</span></strong></span></p><ul><li style="text-align: center;" data-mce-style="text-align: center;"><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">BULLET</span></strong></span><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"></span></strong></span></li></ul><p><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"><br data-mce-bogus="1"></span></strong></span></p>'
         }}
-        onClick={(e) => updateTarget("richText", e.target)}
       />
     </div>
   );
