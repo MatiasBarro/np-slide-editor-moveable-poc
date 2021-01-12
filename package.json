@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "react-scripts": "^2.1.0",
+    "react-moveable": "latest",
+    "react-dom": "^16.8.0",
+    "react": "^16.8.0",
+    "react-scripts-ts": "^2.13.0"
+  },
+  "keywords": [],
+  "name": "poc-slide-editor-moveable",
+  "description": "",
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  }
+}
