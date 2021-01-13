@@ -1,9 +1,9 @@
 {
   "dependencies": {
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-moveable": "0.25.2",
     "react-scripts": "^2.1.0",
-    "react-moveable": "latest",
-    "react-dom": "^16.8.0",
-    "react": "^16.8.0",
     "react-scripts-ts": "^2.13.0"
   },
   "keywords": [],

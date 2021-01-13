@@ -1,6 +1,8 @@
 import * as React from "react";
 import Moveable from "react-moveable";
 
+import RichTextElement from "./RichTextElement";
+
 export default function App() {
   const [target, setTarget] = React.useState();
   const [dragTarget, setDragTarget] = React.useState();
@@ -17,6 +19,18 @@ export default function App() {
       height: 0,
       rotate: 0,
       translate: [0, 150]
+    },
+    gif: {
+      width: 0,
+      height: 0,
+      rotate: 0,
+      translate: [0, 350]
+    },
+    video: {
+      width: 0,
+      height: 0,
+      rotate: 0,
+      translate: [400, 150]
     },
     richText: {
       width: 0,
@@ -103,18 +117,32 @@ export default function App() {
         src="https://i.pinimg.com/originals/b7/ac/a1/b7aca191c897af5fe498a22418c076a8.jpg"
         style={{ position: "absolute", width: "100px", top: "150px" }}
       />
-      <div
-        data-target="richText"
+      <video
+        data-target="video"
+        style={{
+          position: "absolute",
+          width: "320",
+          height: "240",
+          top: "150px",
+          left: "400px"
+        }}
+        src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"
+        controls
+      />
+      <RichTextElement
+        id="richText"
         style={{
           position: "absolute",
           border: "1px solid gray",
           width: "200px",
           left: "200px"
         }}
-        dangerouslySetInnerHTML={{
-          __html:
-            '<p style="text-align: center;" data-mce-style="text-align: center;"><span style="text-decoration: underline;" data-mce-style="text-decoration: underline;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">SlideEditor text sample</span></strong></span></p><ul><li style="text-align: center;" data-mce-style="text-align: center;"><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">BULLET</span></strong></span><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"></span></strong></span></li></ul><p><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"><br data-mce-bogus="1"></span></strong></span></p>'
-        }}
+        html='<p style="text-align: center;" data-mce-style="text-align: center;"><span style="text-decoration: underline;" data-mce-style="text-decoration: underline;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">SlideEditor text sample</span></strong></span></p><ul><li style="text-align: center;" data-mce-style="text-align: center;"><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;">BULLET</span></strong></span><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"></span></strong></span></li></ul><p><span style="color: #e03e2d;" data-mce-style="color: #e03e2d;"><strong><span style="font-size: 14pt;" data-mce-style="font-size: 14pt;"><br data-mce-bogus="1"></span></strong></span></p>'
+      />
+      <img
+        data-target="gif"
+        src="https://media0.giphy.com/media/2tTlClszD6tCePW5R4/source.gif"
+        style={{ position: "absolute", width: "300px", top: "350px" }}
       />
     </div>
   );
